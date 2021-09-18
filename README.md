@@ -5,7 +5,7 @@ Install:
 - yarn install
 - yarn start
 
-To add Energyweb to metmask
+To add Energyweb to metamask
 - RPC: https://rpc.energyweb.org
 - ChainID: 246
 - Currency Symbol: EWT

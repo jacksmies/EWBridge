@@ -27,6 +27,7 @@ import RemoveLiquidity from './RemoveLiquidity'
 import RemoveLiquidityV3 from './RemoveLiquidity/V3'
 import Swap from './Swap'
 import Swap2 from './Swap2'
+import Swap3 from './Swap3'
 import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import Vote from './Vote'
 import VotePage from './Vote/VotePage'
@@ -124,6 +125,7 @@ export default function App() {
 
               <Route exact strict path="/create-proposal" component={CreateProposal} />
               <Route exact strict path="/swap2" component={Swap2} />
+              <Route exact strict path="/swap3" component={Swap3} />
               <Route component={RedirectPathToSwapOnly} />
             </Switch>
             <Marginer />

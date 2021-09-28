@@ -78,6 +78,7 @@ const StyledInfo = styled(Info)`
 export default function Swap2({ history }: RouteComponentProps) {
   const { account } = useActiveWeb3React()
   const loadedUrlParams = useDefaultsFromURLSearch()
+  console.log(loadedUrlParams)
 
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
@@ -145,6 +146,8 @@ export default function Swap2({ history }: RouteComponentProps) {
           },
     [independentField, parsedAmount, showWrap, trade]
   )
+  console.log('parsedAmount')
+  console.log(parsedAmounts)
 
   const [routeNotFound, routeIsLoading, routeIsSyncing] = useMemo(
     () => [
@@ -203,6 +206,9 @@ export default function Swap2({ history }: RouteComponentProps) {
       ? parsedAmounts[independentField]?.toExact() ?? ''
       : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
+  console.log(formattedAmounts)
+  console.log(independentField)
+  console.log(dependentField)
 
   const userHasSpecifiedInputOutput = Boolean(
     currencies[Field.INPUT] && currencies[Field.OUTPUT] && parsedAmounts[independentField]?.greaterThan(JSBI.BigInt(0))
@@ -354,9 +360,9 @@ export default function Swap2({ history }: RouteComponentProps) {
   )
 
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
-
+  //const swapIsUnsupported = true || swapIsUnsupported2
   const priceImpactTooHigh = priceImpactSeverity > 3 && !isExpertMode
-
+  const showLightning = true
   return (
     <>
       <TokenWarningModal
@@ -527,7 +533,7 @@ export default function Swap2({ history }: RouteComponentProps) {
                     </Dots>
                   </TYPE.main>
                 </GreyCard>
-              ) : routeNotFound && userHasSpecifiedInputOutput ? (
+              ) : routeNotFound && userHasSpecifiedInputOutput && !showLightning ? (
                 <GreyCard style={{ textAlign: 'center' }}>
                   <TYPE.main mb="4px">
                     <Trans>Insufficient liquidity for this trade.</Trans>
@@ -640,7 +646,9 @@ export default function Swap2({ history }: RouteComponentProps) {
                     {swapInputError ? (
                       swapInputError
                     ) : priceImpactTooHigh ? (
-                      <Trans>Price Impact Too High</Trans>
+                      <Trans>Price Impact Way Too High</Trans>
+                    ) : showLightning ? (
+                      <Trans>Pay with Lightning</Trans>
                     ) : priceImpactSeverity > 2 ? (
                       <Trans>Swap Anyway</Trans>
                     ) : (

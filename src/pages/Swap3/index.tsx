@@ -99,63 +99,46 @@ export default function Swap3({ history }: RouteComponentProps) {
 
   return (
     <>
-      <AppBody {...{ maxWidth: '800px' }}>
-        <BlueCard>
-          <AutoColumn gap="10px">
-            <TYPE.link fontWeight={400} color={'primaryText1'}>
-              <Trans>
-                <strong>Tip:</strong>This custom action,{' '}
-                <ExternalLink href="https://uniswap.org/docs/v2/governance/governance-reference/#propose">
-                  read the docs
-                </ExternalLink>
-                .
-              </Trans>
-            </TYPE.link>
-          </AutoColumn>
-        </BlueCard>
-        <AutoColumn gap={'sm'}>
-          <div style={{ display: 'relative' }}>
-            <CurrencyInputPanel
-              value={typedValue}
-              onUserInput={handleTypeOutput}
-              label={<Trans>To</Trans>}
-              showMaxButton={false}
-              hideBalance={false}
-              fiatValue={undefined}
-              priceImpact={undefined}
-              currency={undefined}
-              onCurrencySelect={handleOutputSelect}
-              otherCurrency={undefined}
-              showCommonBases={true}
-              id="swap-currency-input"
-              loading={false}
-            />
-            <ArrowWrapper clickable>
-              <ArrowDown
-                size="16"
-                onClick={() => {
-                  onSwitchTokens()
-                }}
-                //color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.text1 : theme.text3}
-              />
-            </ArrowWrapper>
-            <CurrencyInputPanel
-              value={typedValue}
-              onUserInput={handleTypeOutput}
-              label={<Trans>To</Trans>}
-              showMaxButton={false}
-              hideBalance={false}
-              fiatValue={undefined}
-              priceImpact={undefined}
-              currency={undefined}
-              onCurrencySelect={handleOutputSelect}
-              otherCurrency={undefined}
-              showCommonBases={true}
-              id="swap-currency-output"
-              loading={false}
-            />
-          </div>
-        </AutoColumn>
+      <AppBody>
+        <CurrencyInputPanel
+          value={typedValue}
+          onUserInput={handleTypeOutput}
+          label={<Trans>To</Trans>}
+          showMaxButton={false}
+          hideBalance={false}
+          fiatValue={undefined}
+          priceImpact={undefined}
+          currency={undefined}
+          onCurrencySelect={handleOutputSelect}
+          otherCurrency={undefined}
+          showCommonBases={true}
+          id="swap-currency-input"
+          loading={false}
+        />
+        <ArrowWrapper clickable>
+          <ArrowDown
+            size="16"
+            onClick={() => {
+              onSwitchTokens()
+            }}
+            //color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.text1 : theme.text3}
+          />
+        </ArrowWrapper>
+        <CurrencyInputPanel
+          value={typedValue}
+          onUserInput={handleTypeOutput}
+          label={<Trans>To</Trans>}
+          showMaxButton={false}
+          hideBalance={false}
+          fiatValue={undefined}
+          priceImpact={undefined}
+          currency={undefined}
+          onCurrencySelect={handleOutputSelect}
+          otherCurrency={undefined}
+          showCommonBases={true}
+          id="swap-currency-output"
+          loading={false}
+        />
       </AppBody>
     </>
   )

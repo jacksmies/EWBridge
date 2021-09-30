@@ -1,24 +1,21 @@
 {
-    "name": "Energyweb",
-    "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/compound-interface.svg",
-    "keywords": [
-      "energyweb",
-      "defi"
-    ],
-    "timestamp": "2021-05-27T20:37:00.000+00:00",
-    "tokens": [
-      {
-        "chainId": 246,
-        "address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
-        "name": "ESS Shares",
-        "symbol": "ESS",
-        "decimals": 18,
-        "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_ZRX.svg"
-      }
-    ],
-    "version": {
-      "major": 1,
-      "minor": 0,
-      "patch": 0
+  "name": "Energyweb",
+  "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/compound-interface.svg",
+  "keywords": ["energyweb", "defi"],
+  "timestamp": "2021-05-27T20:37:00.000+00:00",
+  "tokens": [
+    {
+      "chainId": 246,
+      "address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
+      "name": "ESS Shares",
+      "symbol": "ESS",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/compound-finance/token-list/master/assets/asset_ZRX.svg"
     }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
   }
+}
